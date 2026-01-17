@@ -27,7 +27,10 @@ export function Macbook16Model(props: Props) {
     "/models/macbook-16-transformed.glb",
   ) as unknown as GLTFResult;
 
-  const texture = useTexture("./screen.png") as THREE.Texture;
+  const texture = useTexture("./screen.png", (tex) => {
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.needsUpdate = true;
+  });
 
   useEffect(() => {
     scene.traverse((child) => {
@@ -37,7 +40,7 @@ export function Macbook16Model(props: Props) {
         }
       }
     });
-  }, [color]);
+  }, [color, scene]);
 
   return (
     <group {...props} dispose={null}>
