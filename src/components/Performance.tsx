@@ -64,7 +64,12 @@ const Performance = () => {
 
       <div className="wrapper">
         {performanceImages.map(({ id, src }, index) => (
-          <img key={index} className={id} src={src} alt={id}></img>
+          <img
+            key={index}
+            className={id}
+            src={src}
+            alt={`Peformance Image #${index}`}
+          />
         ))}
       </div>
 
